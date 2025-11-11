@@ -87,7 +87,7 @@
              </tr>
              <tr class="menu-row" >
                  <td class="menu-btn menu-icon-patient">
-                     <a href="patient.php" class="non-style-link-menu"><div><p class="menu-text">My Patients</p></a></div>
+                     <a href="art-intern.php" class="non-style-link-menu"><div><p class="menu-text">My Intern</p></a></div>
                  </td>
              </tr>
              <tr class="menu-row" >
@@ -367,7 +367,7 @@
                             </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
-                                    <label for="Email" class="form-label">Doctor of this session: </label>
+                                    <label for="Email" class="form-label">Artist of this session: </label>
                                 </td>
                             </tr>
                             <tr>
@@ -397,7 +397,7 @@
                             </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
-                                    <label for="spec" class="form-label"><b>Patients that Already registerd for this session:</b> ('.$result12->num_rows."/".$nop.')</label>
+                                    <label for="spec" class="form-label"><b> Intern that Already registerd for this session:</b> ('.$result12->num_rows."/".$nop.')</label>
                                     <br><br>
                                 </td>
                             </tr>
@@ -411,10 +411,10 @@
                                  <thead>
                                  <tr>   
                                         <th class="table-headin">
-                                             Patient ID
+                                             Intern ID
                                          </th>
                                          <th class="table-headin">
-                                             Patient name
+                                             Intern name
                                          </th>
                                          <th class="table-headin">
                                              
@@ -424,7 +424,7 @@
                                         
                                          
                                          <th class="table-headin">
-                                             Patient Telephone
+                                              Intern Mobile 
                                          </th>
                                          
                                  </thead>

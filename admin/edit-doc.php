@@ -65,7 +65,7 @@
     }
     
 
-    header("location: doctors.php?action=edit&error=".$error."&id=".$id);
+    header("location: art-palette.php?action=edit&error=".$error."&id=".$id);
     ?>
     
    

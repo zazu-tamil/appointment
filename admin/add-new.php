@@ -16,73 +16,64 @@
 </style>
 </head>
 <body>
-    <?php
+   <?php
+session_start();
 
-    //learn from w3schools.com
-
-    session_start();
-
-    if(isset($_SESSION["user"])){
-        if(($_SESSION["user"])=="" or $_SESSION['usertype']!='a'){
-            header("location: ../login.php");
-        }
-
-    }else{
+if (isset($_SESSION["user"])) {
+    if (($_SESSION["user"]) == "" or $_SESSION['usertype'] != 'a') {
         header("location: ../login.php");
     }
-    
-    
+} else {
+    header("location: ../login.php");
+}
 
-    //import database
-    include("../connection.php");
+// import database
+include("../connection.php");
 
+if ($_POST) {
+    // ----- 1. Grab form values ------------------------------------------------
+    $name      = $_POST['name'];
+    $spec      = $_POST['spec'];
+    $email     = $_POST['email'];
+    $tele      = $_POST['Tele'];
+    $password  = $_POST['password'];
+    $cpassword = $_POST['cpassword'];
 
+    // ----- 2. Basic validation ------------------------------------------------
+    if ($password !== $cpassword) {
+        $error = '2'; // passwords do not match
+    } else {
+        // ----- 3. Email already used? -----------------------------------------
+        $check = $database->query("SELECT email FROM webuser WHERE email='$email'");
+        if ($check && $check->num_rows > 0) {
+            $error = '1'; // email already taken
+        } else {
+            // ----- 4. Plain-text password (no hashing) -------------------------
+            $plain_pwd = $password; // keep as plain text (your format)
 
-    if($_POST){
-        //print_r($_POST);
-        $result= $database->query("select * from webuser");
-        $name=$_POST['name'];
-        $nic=$_POST['nic'];
-        $spec=$_POST['spec'];
-        $email=$_POST['email'];
-        $tele=$_POST['Tele'];
-        $password=$_POST['password'];
-        $cpassword=$_POST['cpassword'];
-        
-        if ($password==$cpassword){
-            $error='3';
-            $result= $database->query("select * from webuser where email='$email';");
-            if($result->num_rows==1){
-                $error='1';
-            }else{
+            // ----- 5. INSERT into doctor --------------------------------------
+            $sql1 = "INSERT INTO doctor (docemail, docname, docpassword, doctel, specialties)
+                     VALUES ('$email', '$name', '$plain_pwd', '$tele', '$spec')";
 
-                $sql1="insert into doctor(docemail,docname,docpassword,docnic,doctel,specialties) values('$email','$name','$password','$nic','$tele',$spec);";
-                $sql2="insert into webuser values('$email','d')";
-                $database->query($sql1);
-                $database->query($sql2);
+            // ----- 6. INSERT into webuser -------------------------------------
+            $sql2 = "INSERT INTO webuser (email, usertype)
+                     VALUES ('$email', 'd')";
 
-                //echo $sql1;
-                //echo $sql2;
-                $error= '4';
-                
+            // ----- 7. Execute both queries ------------------------------------
+            if ($database->query($sql1) === TRUE && $database->query($sql2) === TRUE) {
+                $error = '4'; // SUCCESS
+            } else {
+                $error = '3'; // insertion failed
             }
-            
-        }else{
-            $error='2';
         }
-    
-    
-        
-        
-    }else{
-        //header('location: signup.php');
-        $error='3';
     }
-    
+} else {
+    $error = '3'; // invalid POST
+}
 
-    header("location: doctors.php?action=add&error=".$error);
-    ?>
-    
+header("location: art-palette.php?action=add&error=" . $error);
+?>
+
    
 
 </body>

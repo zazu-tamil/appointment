@@ -71,8 +71,8 @@
                     </td>
                 </tr>
                 <tr class="menu-row">
-                    <td class="menu-btn menu-icon-doctor ">
-                        <a href="doctors.php" class="non-style-link-menu "><div><p class="menu-text">Doctors</p></a></div>
+                    <td class="menu-btn menu-icon-doctor">
+                        <a href="art-palette.php" class="non-style-link-menu "><div><p class="menu-text">Art Palette</p></a></div>
                     </td>
                 </tr>
                 <tr class="menu-row" >
@@ -87,12 +87,12 @@
                 </tr>
                 <tr class="menu-row" >
                     <td class="menu-btn menu-icon-patient">
-                        <a href="patient.php" class="non-style-link-menu"><div><p class="menu-text">Patients</p></a></div>
+                        <a href="art-intern.php" class="non-style-link-menu"><div><p class="menu-text">Art Intern</p></a></div>
                     </td>
-                </tr>
-
+                </tr> 
             </table>
         </div>
+
         <div class="dash-body">
             <table border="0" width="100%" style=" border-spacing: 0;margin:0;padding:0;margin-top:25px; ">
                 <tr >
@@ -160,12 +160,12 @@
                             <input type="date" name="sheduledate" id="date" class="input-text filter-container-items" style="margin: 0;width: 95%;">
 
                         </td>
-                        <td width="5%" style="text-align: center;">
-                        Doctor:
+                        <td width="10%" style="text-align: center;">
+                        Art Palette:
                         </td>
                         <td width="30%">
                         <select name="docid" id="" class="box filter-container-items" style="width:90% ;height: 37px;margin: 0;" >
-                            <option value="" disabled selected hidden>Choose Doctor Name from the list</option><br/>
+                            <option value="" disabled selected hidden>Choose Art Palette Name from the list</option><br/>
                                 
                             <?php 
                              
@@ -246,7 +246,7 @@
                         <thead>
                         <tr>
                                 <th class="table-headin">
-                                    Patient name
+                                     Intern Name
                                 </th>
                                 <th class="table-headin">
                                     
@@ -256,13 +256,11 @@
                                
                                 
                                 <th class="table-headin">
-                                    Doctor
+                                    Art Palette
                                 </th>
-                                <th class="table-headin">
-                                    
+                                <th class="table-headin"> 
                                 
-                                    Session Title
-                                    
+                                    Session Title 
                                     </th>
                                 
                                 <th class="table-headin" style="font-size:10px">
@@ -552,7 +550,7 @@
                     <div class="popup">
                     <center>
                         <h2></h2>
-                        <a class="close" href="doctors.php">&times;</a>
+                        <a class="close" href="art-palette.php">&times;</a>
                         <div class="content">
                             eDoc Web App<br>
                             
@@ -621,7 +619,7 @@
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <a href="doctors.php"><input type="button" value="OK" class="login-btn btn-primary-soft btn" ></a>
+                                    <a href="art-palette.php"><input type="button" value="OK" class="login-btn btn-primary-soft btn" ></a>
                                 
                                     
                                 </td>

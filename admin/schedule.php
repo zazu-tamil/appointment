@@ -72,7 +72,7 @@
                 </tr>
                 <tr class="menu-row">
                     <td class="menu-btn menu-icon-doctor ">
-                        <a href="doctors.php" class="non-style-link-menu "><div><p class="menu-text">Doctors</p></a></div>
+                        <a href="art-palette.php" class="non-style-link-menu "><div><p class="menu-text">Art Palette</p></a></div>
                     </td>
                 </tr>
                 <tr class="menu-row" >
@@ -87,7 +87,7 @@
                 </tr>
                 <tr class="menu-row" >
                     <td class="menu-btn menu-icon-patient">
-                        <a href="patient.php" class="non-style-link-menu"><div><p class="menu-text">Patients</p></a></div>
+                        <a href="art-intern.php" class="non-style-link-menu"><div><p class="menu-text">Art Intern</p></a></div>
                     </td>
                 </tr>
 
@@ -160,12 +160,12 @@
                             <input type="date" name="sheduledate" id="date" class="input-text filter-container-items" style="margin: 0;width: 95%;">
 
                         </td>
-                        <td width="5%" style="text-align: center;">
-                        Doctor:
+                        <td width="10%" style="text-align: center;">
+                        Art Palette:
                         </td>
                         <td width="30%">
                         <select name="docid" id="" class="box filter-container-items" style="width:90% ;height: 37px;margin: 0;" >
-                            <option value="" disabled selected hidden>Choose Doctor Name from the list</option><br/>
+                            <option value="" disabled selected hidden>Choose Art Palette Name from the list</option><br/>
                                 
                             <?php 
                             
@@ -253,7 +253,7 @@
                                 </th>
                                 
                                 <th class="table-headin">
-                                    Doctor
+                                   Art Palette
                                 </th>
                                 <th class="table-headin">
                                     
@@ -390,13 +390,13 @@
                             <tr>
                                 
                                 <td class="label-td" colspan="2">
-                                    <label for="docid" class="form-label">Select Doctor: </label>
+                                    <label for="docid" class="form-label">Select Art Palette : </label>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
                                     <select name="docid" id="" class="box" >
-                                    <option value="" disabled selected hidden>Choose Doctor Name from the list</option><br/>';
+                                    <option value="" disabled selected hidden>Choose Art Palette</option><br/>';
                                         
         
                                         $list11 = $database->query("select  * from  doctor order by docname asc;");
@@ -405,6 +405,7 @@
                                             $row00=$list11->fetch_assoc();
                                             $sn=$row00["docname"];
                                             $id00=$row00["docid"];
+                                            echo"<option value=''>Select Art Palette</option><br/>";
                                             echo "<option value=".$id00.">$sn</option><br/>";
                                         };
         
@@ -416,7 +417,7 @@
                             </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
-                                    <label for="nop" class="form-label">Number of Patients/Appointment Numbers : </label>
+                                    <label for="nop" class="form-label">Number of Art Palette  /Appointment Numbers : </label>
                                 </td>
                             </tr>
                             <tr>
@@ -556,7 +557,7 @@
                             </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
-                                    <label for="Email" class="form-label">Doctor of this session: </label>
+                                    <label for="Email" class="form-label">Art Palette of this session: </label>
                                 </td>
                             </tr>
                             <tr>
@@ -586,7 +587,7 @@
                             </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
-                                    <label for="spec" class="form-label"><b>Patients that Already registerd for this session:</b> ('.$result12->num_rows."/".$nop.')</label>
+                                    <label for="spec" class="form-label"><b>Artists that Already registerd for this session:</b> ('.$result12->num_rows."/".$nop.')</label>
                                     <br><br>
                                 </td>
                             </tr>
@@ -600,10 +601,10 @@
                                  <thead>
                                  <tr>   
                                         <th class="table-headin">
-                                             Patient ID
+                                            Artist ID
                                          </th>
                                          <th class="table-headin">
-                                             Patient name
+                                             Artist name
                                          </th>
                                          <th class="table-headin">
                                              
@@ -613,7 +614,7 @@
                                         
                                          
                                          <th class="table-headin">
-                                             Patient Telephone
+                                             Artist Mobile
                                          </th>
                                          
                                  </thead>
